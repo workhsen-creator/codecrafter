@@ -1,0 +1,257 @@
+.services-section {
+    position: relative;
+    background: var(--color-dark);
+    height: 500vh;
+    /* Scroll distance */
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.services-track {
+    display: flex;
+    height: 100vh;
+    padding-left: 5vw;
+    /* Initial offset so first item isn't edge-to-edge */
+}
+
+.services-header {
+    position: absolute;
+    top: 5rem;
+    left: 4rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    pointer-events: none;
+}
+
+.services-header h2,
+.scroll-indicator {
+    pointer-events: auto;
+}
+
+.services-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.arrow-down {
+    font-size: 1.2rem;
+    animation: bounceDown 2s infinite;
+}
+
+.service-card-horizontal {
+    flex: 0 0 80vw;
+    /* Not full screen width, slightly peek next item */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 5vw;
+}
+
+.service-content {
+    max-width: 900px;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.service-number {
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    position: absolute;
+    top: -5rem;
+    left: -2rem;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.service-icon-large {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.2));
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.service-card-horizontal:hover .service-icon-large {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card-horizontal h3 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 800px;
+}
+
+.service-card-horizontal p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+}
+
+.service-cta {
+    background: transparent;
+    border: none;
+    color: var(--color-primary-orange);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-cta:hover {
+    gap: 1.2rem;
+    color: var(--color-primary-purple);
+}
+
+.service-background-text {
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    font-size: 8rem;
+    /* FIXED: Much smaller to avoid overflowing */
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    text-transform: uppercase;
+    user-select: none;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Moving Progress Bar */
+.progress-bar-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform-origin: 0%;
+    z-index: 20;
+    width: 100%;
+}
+
+@keyframes bounceDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .service-card-horizontal h3 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* On mobile, fallback to vertical stack or standard horizontal scroll
+       Note: Sticky scroll works on mobile too, but height: 500vh might be annoying.
+       Let's optimize for "sticky" but maybe less distance or cleaner layout.
+    */
+
+    .services-header {
+        top: 4rem;
+        left: 2rem;
+        width: calc(100% - 4rem);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .service-card-horizontal {
+        flex: 0 0 100vw;
+        /* Full width on mobile */
+        margin-right: 0;
+        padding: 0 2rem;
+        padding-top: 4rem;
+        /* Spacer for header */
+    }
+
+    .service-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .service-number {
+        font-size: 6rem;
+        top: 2rem;
+        left: 0;
+    }
+
+    .service-icon-large {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-card-horizontal h3 {
+        font-size: 2.2rem;
+    }
+
+    .service-card-horizontal p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .service-background-text {
+        font-size: 10vh;
+        bottom: 5vh;
+        opacity: 0.03;
+    }
+}

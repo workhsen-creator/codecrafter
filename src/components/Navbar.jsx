@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import './Navbar.css';
+
+const Navbar = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <motion.nav
+            className={`navbar ${scrolled ? 'scrolled' : ''}`}
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
+            <div className="container nav-container">
+                <div className="logo" onClick={() => scrollToSection('hero')}>
+                    <span className="logo-text">
+                        <span className="logo-code">Code</span>
+                        <span className="logo-crafters">Crafters</span>
+                    </span>
+                </div>
+
+                <ul className="nav-links">
+                    <li><a onClick={() => scrollToSection('hero')}>Home</a></li>
+                    <li><a onClick={() => scrollToSection('services')}>Services</a></li>
+                    <li><a onClick={() => scrollToSection('about')}>About</a></li>
+                    <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+                </ul>
+
+                <button className="btn btn-primary" onClick={() => scrollToSection('contact')}>
+                    Get Started
+                </button>
+            </div>
+        </motion.nav>
+    );
+};
+
+export default Navbar;
