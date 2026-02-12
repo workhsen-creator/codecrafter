@@ -13,22 +13,22 @@ const About = () => {
     const timelineItems = [
         {
             title: 'Our Story',
-            description: 'CodeCrafters started with a vision to bridge the gap between complex imagination and digital reality. We are a collective of dreamers and makers who believe technology should empower, not complicate. From a small team of enthusiasts, we\'ve grown into a full-service agency trusted worldwide.',
+            description: 'CodeCrafters started with a simple vision: turning complex ideas into powerful digital experiences. Built from passion and precision, this studio was created to help businesses transform imagination into reality through clean, scalable web solutions.',
             icon: '📖'
         },
         {
-            title: 'Our Philosophy',
-            description: 'We believe in the power of great design combined with robust functionality. Every project is crafted with obsessive attention to detail, ensuring your digital presence not only looks amazing but performs flawlessly under pressure and scales with your ambition.',
+            title: 'Philosophy',
+            description: 'Great design means nothing without performance. Every project is crafted with attention to detail, combining modern aesthetics with strong, reliable functionality that scales as you grow.',
             icon: '💡'
         },
         {
-            title: 'Our Mission',
-            description: 'To revolutionize the digital landscape by delivering high-quality, scalable, and innovative software solutions. We strive to be your strategic partner in growth, turning your most ambitious ideas into tangible success stories.',
+            title: 'Mission',
+            description: 'To build high-quality, future-ready digital solutions that help brands stand out and grow with confidence.',
             icon: '🎯'
         },
         {
-            title: 'Our Commitment',
-            description: 'We are dedicated to technical mastery and a client-first approach. We don\'t just build software; we build legacies that stand the test of time, ensuring that every solution we provide is future-proof and drives real business value.',
+            title: 'Commitment',
+            description: 'You work directly with the creator. No middle layers. No confusion. Just clear communication, technical precision, and results that matter.',
             icon: '⭐'
         }
     ];
