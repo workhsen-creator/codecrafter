@@ -67,7 +67,6 @@ const Navbar = () => {
                             <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
                         </ul>
                     </li>
-                    <li><a onClick={() => handleNavigation('/work')}>Our Work</a></li>
                 </ul>
 
                 <button className="btn btn-primary" onClick={() => scrollToSection('contact')}>

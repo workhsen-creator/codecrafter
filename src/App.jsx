@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
-import Work from './components/Work';
+
 
 function LandingPage() {
     return (
@@ -27,7 +27,6 @@ function App() {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    <Route path="/work" element={<Work />} />
                     <Route path="*" element={<LandingPage />} />
                 </Routes>
             </div>
