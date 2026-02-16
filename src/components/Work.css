@@ -1,7 +1,6 @@
 /* Work Page Layout */
 .work-page {
     padding-top: 150px;
-    /* Increased from 120px to prevent cutting */
     padding-bottom: 80px;
     min-height: 100vh;
     background: transparent;
@@ -9,36 +8,7 @@
     overflow-x: hidden;
 }
 
-/* ... existing code ... */
-
-/* Content Section */
-.project-content {
-    padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    /* Ensure z-index works */
-    z-index: 5;
-    /* Sit above image/overlay */
-    background: transparent;
-    /* Or a slight gradient if needed */
-}
-
-/* ... existing code ... */
-
-.project-content p {
-    color: #e2e8f0;
-    /* Lighter color (slate-200) for better visibility */
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    min-height: 3.2em;
-    opacity: 1 !important;
-    /* Force visibility */
-    visibility: visible !important;
-}
-
+/* Back Button */
 .back-btn {
     position: fixed;
     top: 2rem;
@@ -92,10 +62,8 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* Side by side on desktop */
     gap: 3rem;
     max-width: 1000px;
-    /* Constrain width for better 2-col look */
     margin: 0 auto;
 }
 
@@ -153,6 +121,9 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 5;
+    /* Ensure content sits above overlay */
 }
 
 .project-content h3 {
@@ -163,13 +134,14 @@
 }
 
 .project-content p {
-    color: #b0b5c1;
-    /* High contrast reading color */
+    color: #e2e8f0;
+    /* Light slate for visibility */
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     min-height: 3.2em;
-    /* Ensure alignment */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* Tech Stack */
@@ -245,5 +217,9 @@
         position: relative;
         display: inline-block;
         margin-bottom: 2rem;
+    }
+
+    .work-page {
+        padding-top: 120px;
     }
 }
