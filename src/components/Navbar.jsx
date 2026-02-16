@@ -37,10 +37,16 @@ const Navbar = () => {
                 </div>
 
                 <ul className="nav-links">
-                    <li><a onClick={() => scrollToSection('hero')}>Home</a></li>
-                    <li><a onClick={() => scrollToSection('services')}>Services</a></li>
-                    <li><a onClick={() => scrollToSection('about')}>About</a></li>
-                    <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+                    <li className="nav-item dropdown">
+                        <a onClick={() => scrollToSection('hero')} className="dropdown-toggle">
+                            Home <span className="arrow">▼</span>
+                        </a>
+                        <ul className="dropdown-menu">
+                            <li><a onClick={() => scrollToSection('services')}>Services</a></li>
+                            <li><a onClick={() => scrollToSection('about')}>About</a></li>
+                            <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <button className="btn btn-primary" onClick={() => scrollToSection('contact')}>
