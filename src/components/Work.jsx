@@ -53,7 +53,6 @@ const Work = () => {
                         </div>
                         <div className="project-info">
                             <h3>{project.title}</h3>
-                            <p>{project.description}</p>
                             <div className="tech-stack">
                                 {project.techStack.map((tech, index) => (
                                     <span key={index} className="tech-tag">{tech}</span>

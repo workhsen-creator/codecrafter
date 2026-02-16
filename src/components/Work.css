@@ -23,6 +23,11 @@
     font-size: 1.1rem;
 }
 
+.highlight {
+    color: var(--color-primary-orange);
+    /* OR fallback if var not available, assuming orange based on previous context */
+}
+
 .back-btn {
     position: absolute;
     left: 2rem;
@@ -43,9 +48,11 @@
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
+    align-items: center;
+    /* Center the cards */
 }
 
 .project-card {
@@ -54,6 +61,9 @@
     border-radius: 16px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 800px;
+    /* Limit width for better vertical look */
 }
 
 .project-card:hover {
