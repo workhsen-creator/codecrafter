@@ -133,20 +133,16 @@
 }
 
 .project-info p {
-    color: var(--color-text-muted);
+    color: var(--color-text-light);
+    /* Always use light color for visibility */
     margin-bottom: 1rem;
     line-height: 1.6;
-    opacity: 1;
-    /* Force visibility */
-    transition: color 0.3s ease;
-    /* Smooth color transition if any */
+    position: relative;
+    /* Ensure z-index works */
+    z-index: 2;
 }
 
-/* Ensure no child elements disappear on hover unless specified */
-.project-card:hover .project-info p {
-    color: var(--color-text-light);
-    /* Slight brightness boost on hover for effect, but stable */
-}
+/* Removed hover color change to prevent flicker */
 
 .tech-stack {
     display: flex;
