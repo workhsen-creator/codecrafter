@@ -28,6 +28,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/work" element={<Work />} />
+                    <Route path="*" element={<LandingPage />} />
                 </Routes>
             </div>
         </Router>
