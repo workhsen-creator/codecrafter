@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,10 +18,27 @@ const Navbar = () => {
     }, []);
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            } else if (id === 'hero') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
+    };
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -47,7 +67,7 @@ const Navbar = () => {
                             <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
                         </ul>
                     </li>
-                    <li><a onClick={() => scrollToSection('work')}>Our Work</a></li>
+                    <li><a onClick={() => handleNavigation('/work')}>Our Work</a></li>
                 </ul>
 
                 <button className="btn btn-primary" onClick={() => scrollToSection('contact')}>

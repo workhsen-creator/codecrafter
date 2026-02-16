@@ -1,21 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
+import Work from './components/Work';
 
-function App() {
+function LandingPage() {
     return (
-        <div className="App">
-            <AnimatedBackground />
-            <Navbar />
+        <>
             <Hero />
             <About />
             <Services />
             <Contact />
-        </div>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <div className="App">
+                <AnimatedBackground />
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/work" element={<Work />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
