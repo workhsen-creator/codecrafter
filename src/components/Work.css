@@ -10,6 +10,7 @@
     text-align: center;
     margin-bottom: 4rem;
     position: relative;
+    padding: 0 1rem;
 }
 
 .work-header h1 {
@@ -21,86 +22,103 @@
 .work-header p {
     color: var(--color-text-muted);
     font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .highlight {
     color: var(--color-primary-orange);
-    /* OR fallback if var not available, assuming orange based on previous context */
 }
 
 .back-btn {
     position: absolute;
     left: 2rem;
     top: 0;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-text-light);
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .back-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--color-primary-orange);
     color: var(--color-primary-orange);
+    transform: translateX(-3px);
 }
 
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
-    /* Center the cards */
+    padding-bottom: 4rem;
 }
 
+/* Premium Card Design */
 .project-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    background: rgba(20, 25, 45, 0.6);
+    /* Slightly darker glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Smooth springy feel */
     width: 100%;
     max-width: 800px;
-    /* Limit width for better vertical look */
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--color-primary-purple);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    border-color: rgba(168, 85, 247, 0.5);
+    /* Purple glow on border */
 }
 
+/* Image Container */
 .project-image {
     position: relative;
-    height: 250px;
+    height: 300px;
+    /* Taller image area */
     overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    /* Subtle zoom */
 }
 
+/* Overlay & Button */
 .project-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    background: rgba(10, 14, 39, 0.4);
+    /* Darkens image slightly on hover */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
 }
 
 .project-card:hover .project-overlay {
@@ -110,60 +128,80 @@
 .visit-btn {
     background: var(--gradient-primary);
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
 }
 
 .project-card:hover .visit-btn {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
+/* Content Area */
 .project-info {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .project-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-heading);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
 }
 
 .project-info p {
-    color: var(--color-text-light);
-    /* Always use light color for visibility */
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    position: relative;
-    /* Ensure z-index works */
-    z-index: 2;
+    color: #cbd5e1;
+    /* Slate-300 for excellent readability */
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    opacity: 1;
+    /* Guaranteed visibility */
 }
 
-/* Removed hover color change to prevent flicker */
-
+/* Tech Stack Tags */
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .tech-tag {
-    font-size: 0.8rem;
-    background: rgba(30, 90, 142, 0.2);
-    color: #4facfe;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    border: 1px solid rgba(79, 172, 254, 0.3);
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-primary-blue);
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    /* Pill shape */
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+}
+
+.project-card:hover .tech-tag {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.4);
 }
 
 @media (max-width: 768px) {
     .back-btn {
         position: relative;
         left: 0;
-        margin-bottom: 1rem;
-        display: inline-block;
+        margin-bottom: 2rem;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+
+    .project-info h3 {
+        font-size: 1.5rem;
     }
 }
