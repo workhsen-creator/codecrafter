@@ -136,6 +136,16 @@
     color: var(--color-text-muted);
     margin-bottom: 1rem;
     line-height: 1.6;
+    opacity: 1;
+    /* Force visibility */
+    transition: color 0.3s ease;
+    /* Smooth color transition if any */
+}
+
+/* Ensure no child elements disappear on hover unless specified */
+.project-card:hover .project-info p {
+    color: var(--color-text-light);
+    /* Slight brightness boost on hover for effect, but stable */
 }
 
 .tech-stack {
